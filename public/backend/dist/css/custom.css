@@ -1,0 +1,104 @@
+.bg-navbar,
+[class*=sidebar-dark-] {
+    background-color: #1e293b;
+}
+
+.sidebar {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.sidebar-mini .main-sidebar .nav-link, .sidebar-mini-md .main-sidebar .nav-link, .sidebar-mini-xs .main-sidebar .nav-link {
+    width: 100%;
+}
+
+.nav-sidebar .nav-item>.nav-link {
+    margin-bottom: 0;
+}
+
+.nav-pills .nav-link {
+    border-radius: 0;
+}
+
+.dashboard-link {
+    width: 100% !important;
+    background-color: #0891b2 !important;
+}
+
+.nav-link-p {
+    margin-left: 26px !important;
+}
+
+.nav-link-p-nasted {
+    margin-left: 42px !important;
+}
+
+.content-header {
+    background: #fff;
+    margin-bottom: 25px;
+}
+
+.content-header .page-title-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.page-title-heading, 
+.page-title-subheading {
+    margin: 0;
+    padding: 0;
+}
+
+.content-header .page-title-heading {
+    font-size: 1.25rem;
+    font-weight: 400;
+    display: flex;
+    align-content: center;
+    align-items: center;
+}
+
+.content-header .page-title-icon {
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    text-align: center;
+    padding: 0.83333rem;
+    margin: 0 30px 0 0;
+    background: #fff;
+    box-shadow: 0 0.46875rem 2.1875rem rgb(4 9 20 / 3%), 0 0.9375rem 1.40625rem rgb(4 9 20 / 3%), 0 0.25rem 0.53125rem rgb(4 9 20 / 5%), 0 0.125rem 0.1875rem rgb(4 9 20 / 3%);
+    border-radius: 0.25rem;
+    width: 60px;
+    height: 60px;
+}
+
+.content-header .page-title-subheading {
+    padding: 3px 0 0;
+    font-size: .88rem;
+    opacity: .6;
+}
+
+.content-header .page-title-actions {
+    margin-left: auto;
+}
+
+@media (max-width: 991.98px) {
+    .page-title-icon {
+        display: none;
+    }
+
+    .content-header {
+        text-align: center;
+    }
+
+    .content-header .page-title-heading,
+    .content-header .page-title-wrapper {
+        margin: 0 auto;
+        display: block;
+    }
+
+    .content-header .page-title-actions {
+        margin: 15px auto 0;
+    }
+}
