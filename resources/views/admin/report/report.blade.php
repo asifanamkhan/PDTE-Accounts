@@ -9,9 +9,9 @@
             </h5>
         </center>
         <div>
-            <p>Sub-Project Title: </p>
-            <p>Name of Institution: </p>
-            <p>IDP No: </p>
+            <div>Sub-Project Title: </div>
+            <div>Name of Institution: </div>
+            <div>IDP No: </div>
         </div>
     </div>
     <table>

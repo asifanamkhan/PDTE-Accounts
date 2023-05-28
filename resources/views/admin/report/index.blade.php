@@ -2,6 +2,22 @@
 
     @section('title', 'Report')
 
+    @push('css')
+        <style>
+            table{
+                border-collapse: collapse;
+            }
+            td,th{
+                border: 1px solid;
+                padding: 2px;
+                font-size: 13.5px;
+            }
+            th{
+                text-align: center;
+            }
+        </style>
+    @endpush
+
     <x-slot name="header">
         <div class="page-title-wrapper">
             <div class="page-title-heading">
@@ -37,43 +53,40 @@
         </div>
         <div class="card">
             <div class="card-body">
-                <div class="row">
-                    <div class="col-md-12">
-                        <form action="{{route('report.store')}}" method="post">
-                            @csrf
-                            <div class="row">
-
-                                <div class="form-group col-md-6">
-                                    <label for="name">From Date<span class="text-red">*</span></label>
-                                    <input type="date" name="from_date" class="form-control">
-                                    @error('Report_date')
-                                    <span class="text-danger" role="alert">
-                                            <p>{{ $message }}</p>
-                                        </span>
-                                    @enderror
-
-                                </div>
-
-                                <div class="form-group col-md-6">
-                                    <label for="name">To Date<span class="text-red">*</span></label>
-                                    <input type="date" name="to_date" class="form-control">
-                                    @error('Report_date')
-                                    <span class="text-danger" role="alert">
-                                            <p>{{ $message }}</p>
-                                        </span>
-                                    @enderror
-
-                                </div>
-
-                            </div>
-                            <div class="row mt-30">
-                                <div class="col-sm-12">
-                                    <button type="submit" class="btn btn-success mr-2">Submit</button>
-                                </div>
-                            </div>
-                        </form>
+                <div>
+                    <div>
+                        <center>
+                            <h4>
+                                Utilization of Fund by Sub-Project Activities
+                            </h4>
+                            <h5>
+                                For the Quarter: ........
+                            </h5>
+                        </center>
+                        <div>
+                            <div>Sub-Project Title: </div>
+                            <div>Name of Institution: </div>
+                            <div>IDP No: </div>
+                        </div>
                     </div>
+                    <table>
+                        <thead>
+                        <tr>
+                            <th rowspan="2">Economic Code(As Per IBAS++)</th>
+                            <th rowspan="2">Item Of Expenditure/Activities</th>
+                            <th colspan="3">Actual Expenditure</th>
+                            <th rowspan="2">Approved Budget (Sub-project life)</th>
+                            <th rowspan="2">Budget Balance</th>
+                        </tr>
+                        <tr>
+                            <th >Current Quarter</th>
+                            <th>Financial Year To Date</th>
+                            <th>Cumulative To Date</th>
+                        </tr>
+                        </thead>
+                    </table>
                 </div>
+
             </div>
         </div>
 

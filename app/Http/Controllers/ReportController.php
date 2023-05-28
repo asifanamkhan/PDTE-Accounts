@@ -15,12 +15,12 @@ class ReportController extends Controller
     public function index()
     {
 
-        $pdf = PDF::loadView('admin.report.report')
-            ->setPaper('A4')
-            ->setWarnings(false);
-        $pdf->render();
-        return $pdf->stream('namefile.pdf');
-        //return view('admin.report.index');
+//        $pdf = PDF::loadView('admin.report.report')
+//            ->setPaper('A4')
+//            ->setWarnings(false);
+//        $pdf->render();
+//        return $pdf->stream("pdf_filename_".rand(10,1000).".pdf", array("Attachment" => true));
+        return view('admin.report.index');
     }
 
     /**
