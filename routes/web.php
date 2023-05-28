@@ -16,5 +16,6 @@ Route::group(['middleware' => ['auth:web']], function () {
         ->name('get-eco-account-data-as-parent');
 
     Route::get('get-eco-account-tree-list',[\App\Http\Controllers\EconomicAccountController::class,'getEcoAccountTreeList'])->name('get-eco-account-tree-list');
+    Route::post('budget-status-change',[\App\Http\Controllers\BudgetController::class,'budgetStatusChange'])->name('budget-status-change');
 
 });

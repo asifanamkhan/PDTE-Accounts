@@ -19,10 +19,10 @@ class CreateVouchersTable extends Migration
             $table->integer('acc_code');
             $table->string('voucher_date');
             $table->string('entry_date');
-            $table->double('debit_amount');
-            $table->double('credit_amount');
+            $table->double('amount');
+//            $table->double('credit_amount');
             $table->text('narration');
-            $table->integer('status');
+            $table->integer('status')->default(0);
             $table->timestamps();
             $table->softDeletes();
         });

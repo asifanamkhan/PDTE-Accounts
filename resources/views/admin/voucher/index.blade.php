@@ -30,7 +30,7 @@
             }
         </style>
     @endpush
-    @section('title', 'Budget')
+    @section('title', 'Voucher')
 
     <x-slot name="header">
         <div class="page-title-wrapper">
@@ -39,12 +39,12 @@
                     <i class="fas fa-compass"></i>
                 </div>
                 <div>
-                    <h4>List of Budget</h4>
+                    <h4>List of Voucher</h4>
                 </div>
             </div>
             <div class="page-title-actions">
 
-                <a href="{{ route('budget.create') }}" type="button" class="btn btn-sm btn-info">
+                <a href="{{ route('voucher.create') }}" type="button" class="btn btn-sm btn-info">
                     <i class="fas fa-plus mr-1"></i>
                     Create
                 </a>
@@ -82,40 +82,42 @@
         <div class="card-body">
             <div class="row">
                 <div class="col-md-12">
-                    <table id="example" class="table customers ">
+                    <table id="example" class="table customers">
                         <thead class="dataTableHeader">
                         <tr>
                             <th>SN</th>
+                            <th>V.no</th>
+                            <th>V.Date</th>
                             <th>Account</th>
-                            <th>Financial year</th>
                             <th>Amount</th>
                             <th>Narration</th>
-                            <th>Status</th>
+{{--                            <th>Status</th>--}}
                             <th>Action</th>
                         </tr>
                         </thead>
 
                         <tbody>
-                        @foreach($budgets as $key => $budget)
+                        @foreach($vouchers as $key => $voucher)
                             <tr class="dataTableHeader">
                                 <td>{{$key+1}}</td>
-                                <td>{{$budget->acc_code}}</td>
-                                <td>{{$budget->amount}}</td>
-                                <td>{{$budget->financial_year}}</td>
-                                <td>{{$budget->description}}</td>
-                                <td>
-                                    @if($budget->status  == 1)
-                                        <button onclick="changeStatus(1,{{$budget->id}})" class="btn btn-sm btn-success">Active</button>
-                                    @else
-                                        <button onclick="changeStatus(0,{{$budget->id}})" class="btn btn-sm btn-danger">In Active</button>
-                                    @endif
-                                </td>
+                                <td>{{$voucher->voucher_no}}</td>
+                                <td>{{$voucher->voucher_date}}</td>
+                                <td>{{$voucher->account->acc_name}}</td>
+                                <td>{{$voucher->amount}}</td>
+                                <td>{{$voucher->narration}}</td>
+{{--                                <td>--}}
+{{--                                    @if($Voucher->status  == 1)--}}
+{{--                                        <button onclick="changeStatus(1,{{$Voucher->id}})" class="btn btn-sm btn-success">Active</button>--}}
+{{--                                    @else--}}
+{{--                                        <button onclick="changeStatus(0,{{$Voucher->id}})" class="btn btn-sm btn-danger">In Active</button>--}}
+{{--                                    @endif--}}
+{{--                                </td>--}}
 
                                 <td>
                                     <div class="btn btn-group">
-                                        <a href="{{route('budget.edit', $budget->id)}} "
+                                        <a href="{{route('voucher.edit', $voucher->id)}} "
                                            class="btn btn-sm btn-info" title="Edit"><i class="fa fa-edit"></i></a>
-                                        <form action="{{route('budget.destroy',$budget->id)}}"
+                                        <form action="{{route('voucher.destroy',$voucher->id)}}"
                                               method="post">
                                             @csrf
                                             @method('DELETE')
@@ -161,9 +163,9 @@
                             type: type,
                             id: id
                         },
-                        url:"{{ route('budget-status-change') }}",
+                        url:"",
                         success:function(data){
-                            window.location.href = "{{route('budget.index')}}";
+                            window.location.href = "{{route('voucher.index')}}";
                             // $('#account-add-area').html(data)
                         }
                     });

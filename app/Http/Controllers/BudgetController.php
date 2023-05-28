@@ -15,11 +15,22 @@ class BudgetController extends Controller
      */
     public function index()
     {
-        $accountL1 = EconomicAccount::where('parent_code',0)->pluck('acc_code');
-        $accountL2 = EconomicAccount::whereIn('parent_code', $accountL1)->pluck('acc_code');
-        $accounts = EconomicAccount::whereIn('parent_code', $accountL2)->get();
+        $budgets = Budget::all();
+        return view('admin.budget.index', compact('budgets'));
+    }
 
-        return view('admin.budget.create', compact('accounts'));
+    public function budgetStatusChange(Request  $request){
+        try {
+            $budget = Budget::findOrFail($request->id);
+//            return $request->type;
+            $budget->status = $request->type == 1 ? 0 : 1;
+            $budget->save();
+            return true;
+        }catch (\Exception $excepton){
+            return $excepton->getMessage();
+        }
+
+
     }
 
     /**
@@ -29,7 +40,11 @@ class BudgetController extends Controller
      */
     public function create()
     {
-        //
+        $accountL1 = EconomicAccount::where('parent_code',0)->pluck('acc_code');
+        $accountL2 = EconomicAccount::whereIn('parent_code', $accountL1)->pluck('acc_code');
+        $accounts = EconomicAccount::whereIn('parent_code', $accountL2)->get();
+
+        return view('admin.budget.create', compact('accounts'));
     }
 
     /**
@@ -40,7 +55,16 @@ class BudgetController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = new Budget();
+        $data->acc_code = $request->acc_code;
+        $data->amount = $request->amount;
+        $data->financial_year = $request->financial_year;
+        $data->description = $request->description;
+        $data->status = 0;
+
+        $data->save();
+
+        return redirect()->route('budget.index');
     }
 
     /**

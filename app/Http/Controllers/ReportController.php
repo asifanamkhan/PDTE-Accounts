@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use PDF;
 
 class ReportController extends Controller
 {
@@ -13,7 +14,13 @@ class ReportController extends Controller
      */
     public function index()
     {
-        //
+
+        $pdf = PDF::loadView('admin.report.report')
+            ->setPaper('A4')
+            ->setWarnings(false);
+        $pdf->render();
+        return $pdf->stream('namefile.pdf');
+        //return view('admin.report.index');
     }
 
     /**
@@ -34,7 +41,7 @@ class ReportController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
     }
 
     /**

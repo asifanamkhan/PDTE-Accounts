@@ -54,8 +54,8 @@
                         </p>
                     </a>
                 </li>
-                <li class="nav-item {{ ($route == 'economic-account.*')  ? 'menu-open' : ' ' }}">
-                    <a href="" class="nav-link ">
+                <li class="nav-item {{ ($route == 'report.*')  ? 'menu-open' : ' ' }}">
+                    <a href="{{route('report.index')}}" class="nav-link ">
                         <i class="fas fa-book"></i>
                         <p class="ml-2">
                             Report
