@@ -58,7 +58,15 @@
                     <a href="{{route('report.index')}}" class="nav-link ">
                         <i class="fas fa-book"></i>
                         <p class="ml-2">
-                            Report
+                            Report 1
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item {{ ($route == 'report.*')  ? 'menu-open' : ' ' }}">
+                    <a href="{{route('report.create')}}" class="nav-link ">
+                        <i class="fas fa-book"></i>
+                        <p class="ml-2">
+                            Report 2
                         </p>
                     </a>
                 </li>
